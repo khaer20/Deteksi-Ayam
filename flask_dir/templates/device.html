@@ -1,0 +1,34 @@
+{%extends 'base.html'%}
+
+{%block content%}
+        <div style="  margin: 0; padding-left: 0%; padding-right: 0%; display:flex; flex-direction: row; gap: 0.5rem; height: 100%; align-items: center; width: 100%;"  class="col-lg-8  offset-lg-2">
+           
+            <div style="padding-left: 2rem; width: 100%;">
+                <div>
+                <p style="line-height:1; color: #e4e4e4;">
+                    <span class="Ope-SemiBold" style="font-size: 20px;">Tahap Persiapan</span><br>
+                    <span class="Bold" style="font-size: 40px;">PILIH DEVICE KAMERA</span>
+                </p>
+                </div>
+            
+                {%for cam in list%}
+                <a href="{{url_for('views.detect',cam=loop.index0)}}">  
+                <div style="padding-left:3rem; overflow: auto;">
+                <p style="color: #e4e4e4;">
+                    <span style="font-size: 15px;" class="Ope-Regular">DEVICE</span><br>
+                    <span style="font-size: 15px;" class="Ope-Bold">{{cam}}</span>
+                    <!-- <span style="font-size: 15px;" class="Ope-Bold">{{cam}} {{loop.index0}}</span> -->
+                    <hr style="border-color: #e4e4e4; width: 28%;">
+                </p>
+                </div>
+                </a>
+                {%endfor%}
+              
+            </div>
+            
+
+
+
+        </div>
+
+{%endblock%}
