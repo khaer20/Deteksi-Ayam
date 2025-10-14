@@ -1,23 +1,23 @@
 from flask import Blueprint,render_template,Response,redirect,session,request
 from .deteksi import DeteksiYolo
 from pygrabber.dshow_graph import FilterGraph
-import pythoncom
-from win32com.client import Dispatch
+# import pythoncom
+# from win32com.client import Dispatch
 from twilio.rest import Client
 import asyncio
 
 views = Blueprint('views', __name__)
 
 #pythoncom function
-def pythonCom():
-        # Initialize COM for this thread
-        pythoncom.CoInitialize() 
+# def pythonCom():
+#         # Initialize COM for this thread
+#         pythoncom.CoInitialize() 
 
-        # Now, safely use win32com.client
-        excel_app = Dispatch("Excel.Application")
-        excel_app.Visible = True
-        # ... perform desired Excel operations ...
-        excel_app.Quit()
+#         # Now, safely use win32com.client
+#         excel_app = Dispatch("Excel.Application")
+#         excel_app.Visible = True
+#         # ... perform desired Excel operations ...
+#         excel_app.Quit()
 
 
 @views.route('/video_feed')
