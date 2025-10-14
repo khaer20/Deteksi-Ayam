@@ -11,6 +11,7 @@
                 </p>
                 </div>
             
+<<<<<<< HEAD
                 {%for cam in list%}
                 <a href="{{url_for('views.detect',cam=loop.index0)}}">  
                 <div style="padding-left:3rem; overflow: auto;">
@@ -18,11 +19,21 @@
                     <span style="font-size: 15px;" class="Ope-Regular">DEVICE</span><br>
                     <span style="font-size: 15px;" class="Ope-Bold">{{cam}}</span>
                     <!-- <span style="font-size: 15px;" class="Ope-Bold">{{cam}} {{loop.index0}}</span> -->
+=======
+                <a href="{{url_for('views.detect',cam="rtsp://admin:filzahudi12345@192.168.1.74:554/stream0:0")}}">  
+                <div style="padding-left:3rem; overflow: auto;">
+                <p style="color: #e4e4e4;">
+                    <span style="font-size: 15px;" class="Ope-Regular">DEVICE</span><br>
+                    <span style="font-size: 15px;" class="Ope-Bold">CCTV 01</span>
+>>>>>>> master
                     <hr style="border-color: #e4e4e4; width: 28%;">
                 </p>
                 </div>
                 </a>
+<<<<<<< HEAD
                 {%endfor%}
+=======
+>>>>>>> master
               
             </div>
             

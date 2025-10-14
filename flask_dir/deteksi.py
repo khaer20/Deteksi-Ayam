@@ -8,6 +8,7 @@ import asyncio
 from datetime import datetime
 
 
+<<<<<<< HEAD
 class DeteksiYolo:
     
     def __init__(self,nomor_camera:int) -> None:
@@ -15,6 +16,17 @@ class DeteksiYolo:
         self.camera = cv2.VideoCapture('rtsp://192.168.1.12:554/stream0:0')  # konfigurasi kamera
         # for cctv camera use rtsp://username:password@ip_address:554/user=username_password='password'_channel=channel_number_stream=0.sdp' instead of camera
         self.model = YOLO('flask_dir/weightYOLOv9s.pt') # konfigurasi model YOLO
+=======
+
+
+class DeteksiYolo:
+    
+    def __init__(self,) -> None:
+        self.camera = cv2.VideoCapture("rtsp://admin:filzahudi12345@192.168.1.74:554/stream0:0")  # konfigurasi kamera
+        # self.camera = cv2.VideoCapture("rtsp://admin:filzahudi12345@192.168.1.74:554/stream0:0")  # konfigurasi kamera
+        # for cctv camera use rtsp://username:password@ip_address:554/user=username_password='password'_channel=channel_number_stream=0.sdp' instead of camera
+        self.model = YOLO('flask_dir/best.pt') # konfigurasi model YOLO
+>>>>>>> master
         self.COLORS = sv.ColorPalette.from_hex(["#E6194B", "#3CB44B", "#FFE119", "#3C76D1"]) # konfigurasi warna anotasi bounding box
         self.tracker = sv.ByteTrack()
         self.box_annotator = sv.BoxAnnotator(color=self.COLORS)
@@ -47,6 +59,30 @@ class DeteksiYolo:
         to='whatsapp:+6281524046616',
         body= f'Notifikasi Aplikasi Deteksi Kesehatan Ayam : Terdeteksi ayam dengan kondisi sakit'
         )
+<<<<<<< HEAD
+=======
+    def notifWhatsapp2(self):     
+           
+        account_sid = 'ACa0ce8a759e9ec1173cb589be5caf902b'
+        auth_token = '234c333675f5a115c7162ee6879ec03c'
+        client = Client(account_sid, auth_token)
+
+        message = client.messages.create(
+        from_='whatsapp:+14155238886',
+        to='whatsapp:+6281524046616',
+        body= f'Notifikasi Aplikasi Deteksi Kesehatan Ayam : Terdeteksi ayam dengan kondisi Mati'
+        )
+        
+        # account_sid = 'AC950cedefa1596f92dbe4e011f42c2dc4'
+        # auth_token = '990b1ef3b5c81d747b945f34e1e52547'
+        # client = Client(account_sid, auth_token)
+
+        # message = client.messages.create(
+        # from_='whatsapp:+14155238886',
+        # to='whatsapp:+6285796736427',
+        # body= f'Notifikasi Aplikasi Deteksi Kesehatan Ayam : Terdeteksi ayam dengan kondisi sakit'
+        # )
+>>>>>>> master
  
 
             
@@ -109,7 +145,11 @@ class DeteksiYolo:
                         if mati:
                             # menjalankan fitur/function mengirim notif ke Whatsapp
                             if self.x == False:
+<<<<<<< HEAD
                                 self.notifWhatsapp()
+=======
+                                self.notifWhatsapp2()
+>>>>>>> master
                                 self.x = True
                                 self.minute()      
                         # if sehat:
@@ -117,7 +157,11 @@ class DeteksiYolo:
                         #     if self.x == False:
                         #         self.notifWhatsapp()
                         #         self.x = True
+<<<<<<< HEAD
                         #         self.detik()      
+=======
+                        #         self.minute()      
+>>>>>>> master
     def delay(self):
         current_time = datetime.now()
         minute_now = current_time.minute 
@@ -133,6 +177,7 @@ class DeteksiYolo:
                 break
             else:
                 
+<<<<<<< HEAD
                 self.delay()
                 # menjalankan model pada frame dan mengatur nms untuk menghilangkan doble bounding box
                 result = self.model(frame, agnostic_nms=True)[0]
@@ -159,6 +204,34 @@ class DeteksiYolo:
                 # konversi frame agar dapat di tampilkan ke view
                 ret, buffer = cv2.imencode('.jpg', frame)
                 frame = buffer.tobytes()
+=======
+                # self.delay()
+                # menjalankan model pada frame dan mengatur nms untuk menghilangkan doble bounding box
+                # result = self.model(frame, agnostic_nms=True)[0]
+                # frame2 = frame.copy()
+                ret, buffer = cv2.imencode('.jpg', frame)
+                frame = buffer.tobytes()
+
+                # # mengatur format hasil deteksi yolo dengan yolov8
+                # detections = sv.Detections.from_ultralytics(result)
+
+                # # tambahkan tracker
+                # detections = self.tracker.update_with_detections(detections)
+
+                # # menampung detections
+                # tampung_detect = []
+                # tampung_detect.append(detections)
+                
+                # # memanggil fitur/function seleksi kelas
+                # self.seleksiKelas(tampung_detect=tampung_detect)
+                
+                # # memanggil fitur/function annotasi bounding box
+                # frame = self.annotasiBoundingBox(frame=frame2,detections=detections)
+
+                # # konversi frame agar dapat di tampilkan ke view
+                # ret, buffer = cv2.imencode('.jpg', frame)
+                # frame = buffer.tobytes()
+>>>>>>> master
                 
                 # mengirim frame menjadi objek ke tampilan website
                 yield (b'--frame\r\n'

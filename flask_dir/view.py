@@ -23,20 +23,30 @@ def pythonCom():
 @views.route('/video_feed')
 def video_feed():
     """Video streaming route. Put this in the src attribute of an img tag."""
+<<<<<<< HEAD
     cam = session['cam']
     deteksi = DeteksiYolo(nomor_camera=int(cam))
+=======
+    deteksi = DeteksiYolo()
+>>>>>>> master
     return Response(deteksi.gen_frames(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
+<<<<<<< HEAD
 @views.route('detect/<int:cam>')
 def detect(cam):
     session['cam'] = int(cam)
+=======
+@views.route('detect')
+def detect():
+>>>>>>> master
     return render_template('index.html')
 
 @views.route('device')
 def device():
 
+<<<<<<< HEAD
     pythonCom()
     graph = FilterGraph()
     devices = graph.get_input_devices()
@@ -48,6 +58,20 @@ def device():
     pythoncom.CoUninitialize()
 
     return render_template('device.html',list=list)
+=======
+    # pythonCom()
+    # graph = FilterGraph()
+    # devices = graph.get_input_devices()
+    # list = []
+
+    # for i, device in enumerate(devices):
+    #         print(f"{i}: {device}")
+    #         list.append(str(device))
+    # pythoncom.CoUninitialize()
+
+    # return render_template('device.html',list=list)
+    return render_template('device.html')
+>>>>>>> master
 
 @views.route('/')
 def home():
